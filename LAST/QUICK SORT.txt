@@ -1,0 +1,29 @@
+int sort_functions::partitio( int low, int high) 
+{
+	int pivot = vec[high];
+	int index = low - 1;
+	for (int i = low; i < high; i++)
+	{
+		if (vec[i] <= pivot)
+		{
+			index++;
+			swap(vec[i], vec[index]);
+		}
+	}
+	swap(vec[index + 1], vec[high]);
+	return (index + 1);
+}
+void sort_functions::quicksort( int low, int high)
+{
+	if (low<high)
+	{
+
+
+		int piv = (low + high) / 2;
+		//cout << random << endl;
+		swap(vec[high], vec[piv]);
+		int PivotIndex = partitio( low, high);
+		quicksort( low, PivotIndex - 1);
+		quicksort(PivotIndex + 1, high);
+	}
+}
